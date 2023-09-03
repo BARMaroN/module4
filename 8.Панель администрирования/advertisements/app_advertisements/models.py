@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib import admin
 
 class Advertisement(models.Model):
 
@@ -24,6 +24,11 @@ class Advertisement(models.Model):
 
     # Дата изменения 
     updated_at = models.DateTimeField(auto_now = True)
+
+    @admin.display(description = "Дата создания")
+    def created_date(self):
+        return self.created_at.strftime("%d.%m.%Y в %H:%M:%S")
+
 
     # Изображения
 
