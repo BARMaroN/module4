@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+<!-- Панель навигации -->>
 <ul class="nav nav-pills sticky-top bg-white nav-fill">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="/">
@@ -43,6 +44,7 @@
   </li>
 </ul>
 
+<!-- Карусель -->
 <div id="carouselExampleControls" class="carousel slide bg-primary" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -64,12 +66,18 @@
     <span class="visually-hidden">Следующий</span>
   </button>
 </div>
+
+<!-- Контейнер_1 -->
 <div class="container" style="margin: 50px;">
   <div class="display-2">
     <span class="badge bg-primary">В центре внимания</span>
   </div>
 </div>
-<div class="container">
+
+<!--  Котейнер_2 -->
+<div class="container"> 
+  
+  <!-- Ещё одна панель навигации -->
   <div class="row">
     <ul class="nav nav-tabs bg-white">
       <li class="nav-item">
@@ -94,8 +102,11 @@
       </div>
     </form>
   </div>
+  
+  <!-- Список -->
   <div class="col">
-    {% for adv in advertisements %}
+    {% for adv in advertisements %}  
+    <!-- Одно объявление -->
     <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
       <div class="row g-0">
         <div class="col-md-4">
@@ -120,6 +131,8 @@
     {% endfor %}
   </div>
 </div>
+
+<!-- Подвал -->
 <footer style="padding: 100px;" class="bg-primary">
   <nav class="navbar navbar-expand-sm navbar-dark">
     <a class="navbar-brand" href="#">Добавьте</a>
