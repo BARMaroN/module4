@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib import admin
 from django.utils.html import format_html
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 class Advertisement(models.Model):
 
@@ -23,9 +27,6 @@ class Advertisement(models.Model):
     # Дата создания
     created_at = models.DateTimeField(auto_now_add = True)
 
-    # Дата изменения 
-    updated_at = models.DateTimeField(auto_now = True)
-
     @admin.display(description = "Дата создания")
     def created_date(self):
         from django.utils import timezone
@@ -35,9 +36,12 @@ class Advertisement(models.Model):
             return format_html("<span style = 'color: green; font-weight:bold;'> Сегодня в {} </span>", created_time)
         
         return self.created_at.strftime("%d.%m.%Y в %H:%M:%S")
+    
+    # Дата изменения 
+    updated_at = models.DateTimeField(auto_now = True)
  
-
     # Изображения
+    image = models.ImageField("Изображение", upload_to = "advertisements/")    
 
-    # Адрес
-
+    # Автор
+    user = models.ForeignKey(User, verbose_name = "Пользователь", on_delete = models.CASCADE)
